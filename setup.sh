@@ -1,1 +1,3 @@
-This is my first DevOps script
+#!/bin/bash
+echo "🛠️ Setting up DevOps environment..."
+echo "✅ Done!"
