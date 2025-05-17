@@ -1,16 +1,19 @@
-name: Hello CI
+name: Run DevOps Script
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
+  run-script:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
-      
-    - name: Print Hello
-      run: echo "✅ GitHub Actions աշխատում է!"
+
+    - name: Make script executable
+      run: chmod +x setup.sh
+
+    - name: Run the setup script
+      run: ./setup.sh
