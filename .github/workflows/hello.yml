@@ -1,19 +1,22 @@
-name: Run DevOps Script
+name: CI with Tests
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  run-script:
+  test-and-run:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Make script executable
-      run: chmod +x setup.sh
+    - name: Make scripts executable
+      run: chmod +x setup.sh test.sh
 
-    - name: Run the setup script
+    - name: 🔎 Run test script
+      run: ./test.sh
+
+    - name: 🛠️ Run main setup script
       run: ./setup.sh
